@@ -34,12 +34,16 @@
 }
 
   html, body {
-    width: 100%; height: 100%; overflow: hidden;
-    font-family: 'Nunito', sans-serif;
-    /* iOS: дополнительная защита на уровне документа */
-    -webkit-user-select: none !important;
-    -webkit-touch-callout: none !important;
-  }
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  font-family: 'Nunito', sans-serif;
+
+  /* iOS: дополнительная защита на уровне документа */
+  -webkit-user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
 
   .scene {
     position: fixed; inset: 0;
@@ -85,15 +89,19 @@
   .screen.out     { opacity: 0; transform: translateY(-6px) scale(1.02); pointer-events: none; transition: opacity .22s ease, transform .22s ease; }
 
   /* ── CARD ── */
-  .card {
-    background: rgba(255,255,255,.85);
-    border-radius: clamp(20px,5vw,32px);
-    padding: clamp(18px,5vw,26px) clamp(16px,4vw,22px);
-    width: 100%; max-width: 390px;
-    border: 2px solid rgba(255,200,220,.7);
-    box-shadow: 0 6px 28px rgba(255,100,150,.2), 0 2px 8px rgba(0,0,0,.06);
-    position: relative; overflow: hidden;
-  }
+.card {
+  background: rgba(255,255,255,.85);
+  border-radius: clamp(20px,5vw,32px);
+  padding: clamp(18px,5vw,26px) clamp(16px,4vw,22px);
+  width: 100%;
+  max-width: 390px;
+  max-height: 90vh;
+  border: 2px solid rgba(255,200,220,.7);
+  box-shadow: 0 6px 28px rgba(255,100,150,.2), 0 2px 8px rgba(0,0,0,.06);
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
   .card::before {
     content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
     background: linear-gradient(90deg, #ff8fb1, #ff5c9a, #c36bff, #5bc4ff, #ff8fb1);
@@ -1156,6 +1164,7 @@ document.addEventListener('pointerdown', e => {
     e.target.style.webkitTouchCallout = 'none';
   }
 }, { passive: true });
+
 </script>
 </body>
 </html>
